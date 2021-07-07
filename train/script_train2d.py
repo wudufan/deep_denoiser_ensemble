@@ -30,7 +30,9 @@ slurm_header = """#!/bin/bash
 
 # %%
 # identify the input directories
-dose_rates = range(2,17,1)
+# dose_rates = range(2,17,1)
+# dose_rates = [2,4,8,12,16]
+dose_rates = [6]
 cmds = []
 logs = []
 for dose_rate in dose_rates:

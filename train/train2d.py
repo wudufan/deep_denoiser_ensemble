@@ -308,9 +308,10 @@ for epoch in range(start_epoch, nepoch):
             l2_losses.append(np.sqrt(np.mean((preds - valid_y)**2)))
             
             # output
-            tf.summary.image('valid-' + filename + '/pred', utils.snapshot(preds[...,0], len(preds)//2-1, vmin=display_vmin, vmax=display_vmax), step = epoch + 1)
-            tf.summary.image('valid-' + filename + '/x', utils.snapshot(valid_x[...,0], len(valid_x)//2-1, vmin=display_vmin, vmax=display_vmax), step = epoch + 1)
-            tf.summary.image('valid-' + filename + '/y', utils.snapshot(valid_y[...,0], len(valid_y)//2-1, vmin=display_vmin, vmax=display_vmax), step = epoch + 1)
+            display_silice = 99
+            tf.summary.image('valid-' + filename + '/pred', utils.snapshot(preds[...,0], display_silice, vmin=display_vmin, vmax=display_vmax), step = epoch + 1)
+            tf.summary.image('valid-' + filename + '/x', utils.snapshot(valid_x[...,0], display_silice, vmin=display_vmin, vmax=display_vmax), step = epoch + 1)
+            tf.summary.image('valid-' + filename + '/y', utils.snapshot(valid_y[...,0], display_silice, vmin=display_vmin, vmax=display_vmax), step = epoch + 1)
             tb_writer.flush()
             
             utils.save_nii(preds[...,0], os.path.join(valid_dir, filename + '.pred.nii'), vmin, vmax)
