@@ -7,4 +7,5 @@
 
 
 cd ..
+python3 train2d.py --config "./config/baseline/l2_depth_4_all.cfg" --Training.device "0" &> ./output/baseline/l2_depth_4_all.log
 python3 train2d.py --config "./config/baseline/l2_depth_3_all.cfg" --Training.device "0" &> ./output/baseline/l2_depth_3_all.log

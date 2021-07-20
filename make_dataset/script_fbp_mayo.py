@@ -14,14 +14,14 @@ from datetime import datetime
 
 # %%
 job_name = 'fbp_mayo'
-devices = ['0', '1', '2', '3']
-nprocesses = 4
-args = {'input_dir': '/home/dwu/data/lowdoseCTsets/', 
-        'geometry': '/home/dwu/trainData/deep_denoiser_ensemble/data/mayo/geometry.cfg',
+devices = ['0']
+nprocesses = 2
+args = {'input_dir': '/home/local/PARTNERS/dw640/mnt/women_health_internal/dufan.wu/lowdoseCTsets/', 
+        'geometry': '/home/local/PARTNERS/dw640/deep_denoiser_ensemble/geometry_mayo.cfg',
         'N0': '1e5',
         'imgNorm': '0.019'
         }
-output_dir = '/home/dwu/trainData/deep_denoiser_ensemble/data/mayo/'
+output_dir = '/home/local/PARTNERS/dw640/mnt/women_health_internal/dufan.wu/deep_denoiser_ensemble/data/mayo/'
 slurm_header = """#!/bin/bash
 #SBATCH --partition=defq
 #SBATCH --job-name=%s
@@ -36,8 +36,8 @@ slurm_header = """#!/bin/bash
 names = ['L067_full_sino', 'L096_full_sino', 'L109_full_sino', 'L143_full_sino', 'L192_full_sino', 
          'L286_full_sino', 'L291_full_sino', 'L310_full_sino', 'L333_full_sino', 'L506_full_sino']
 # dose_rates = range(1,17,1)
-# dose_rates = [1,2,4,8,12,16]
-dose_rates = [6]
+dose_rates = [1,2,4,6,8,12,16]
+# dose_rates = [6]
 cmds = []
 for name in names:
     for dose_rate in dose_rates:

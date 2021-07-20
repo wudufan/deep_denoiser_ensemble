@@ -14,8 +14,8 @@ from datetime import datetime
 
 # %%
 job_name = 'train2d'
-devices = ['1', '2', '3']
-nprocesses = 3
+devices = ['0']
+nprocesses = 1
 args = {'config': './config/baseline/l2_depth_3.cfg', 
         }
 logprefix = './output/baseline/l2_depth_3'
@@ -31,8 +31,8 @@ slurm_header = """#!/bin/bash
 # %%
 # identify the input directories
 # dose_rates = range(2,17,1)
-# dose_rates = [2,4,8,12,16]
-dose_rates = [6]
+dose_rates = [2,4,8,6,12,16]
+# dose_rates = [6]
 cmds = []
 logs = []
 for dose_rate in dose_rates:
